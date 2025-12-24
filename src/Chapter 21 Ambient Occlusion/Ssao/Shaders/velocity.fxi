@@ -1,0 +1,14 @@
+
+float2 EncodeVelocity( float2 v )
+{
+	return v;
+	return sqrt(abs(v)) * sign(v) * (127.0f/255.0f) + 0.5f;
+}
+
+
+float2 DecodeVelocity( float2 v )
+{
+	return v;
+	v = ( v - 127.0f/255.0f ) * 255.0f/127.0f;
+	return v * v * sign(v);
+}
